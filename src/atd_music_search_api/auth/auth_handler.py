@@ -19,7 +19,9 @@ def decode_token(token: str) -> dict[Any, Any]:
         return {}
 
 
-def create_token(subject: str, secret: str | None = None, expiration: int | None = None) -> str:
+def create_token(
+    subject: str, secret: str | None = None, expiration: int | None = None
+) -> str:
     JWT_SECRET = CONFIG.atd_music_search_api.secret if not secret else secret
     now = int(time.time())
     tomorrow = now + 24 * 3600

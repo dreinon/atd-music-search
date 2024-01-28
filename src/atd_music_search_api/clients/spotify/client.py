@@ -1,10 +1,8 @@
-from ...config import CONFIG
-from httpx import Client
 import httpx
-from .types import (
-    SearchTrackResponse,
-    TokenResponse,
-)
+from httpx import Client
+
+from ...config import CONFIG
+from .types import SearchTrackResponse, TokenResponse
 
 
 def get_access_token():

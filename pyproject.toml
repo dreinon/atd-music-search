@@ -18,9 +18,15 @@ readme = "README.md"
 license = {text = "MIT"}
 
 [tool.pdm.dev-dependencies]
-dev = ["black", "isort", "loguru"]
+dev = [
+    "watchfiles>=0.21.0",
+    "black>=24.1.1",
+    "isort>=5.13.2",
+    "pre-commit>=3.6.0",
+]
 
 [tool.pdm.scripts]
+set_precommit_hooks = "pre-commit install --install-hooks"
 format = {shell = "black . && isort ."}
 lint = {shell = "pylint src"}
 local = {cmd = "python -m scripts.run_local_server", env = {ENV = "config"}}
@@ -30,3 +36,6 @@ tunnel = "ngrok http 8080"
 
 [tool.pdm]
 distribution = false
+
+[tool.isort]
+profile = "black"
