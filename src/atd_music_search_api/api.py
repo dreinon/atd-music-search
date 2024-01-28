@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from src.atd_music_search_api.lib import SpotifyClient
-import json
+from .clients import SpotifyClient
 
 app = FastAPI(title="ATD Music Search API")
 

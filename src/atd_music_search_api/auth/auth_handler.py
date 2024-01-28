@@ -4,7 +4,7 @@ from typing import Any, cast
 
 from jose import JWTError, jwt
 
-from src.atd_music_search_api.config import CONFIG
+from ..config import CONFIG
 
 ALGORITHM = "HS256"
 
