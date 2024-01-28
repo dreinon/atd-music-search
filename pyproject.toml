@@ -1,0 +1,31 @@
+[project]
+name = "atd-music-search"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "dreinon",email = "danielreinon@outlook.com"},
+]
+dependencies = [
+    "fastapi>=0.109.0",
+    "python-jose>=3.3.0",
+    "gunicorn>=21.2.0",
+    "uvicorn>=0.27.0",
+]
+
+requires-python = "==3.10.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm.dev-dependencies]
+dev = ["black", "isort", "loguru"]
+
+[tool.pdm.scripts]
+format = {shell = "black . && isort ."}
+lint = {shell = "pylint src"}
+local = {cmd = "python -m scripts.run_local_server", env = {ENV = "config"}}
+server = "gunicorn src.atd_music_search_api.api:app -b 0.0.0.0:8080 -k uvicorn.workers.UvicornWorker -w 4 -t 300 --reload"
+tunnel = "ngrok http 8080"
+
+
+[tool.pdm]
+distribution = false

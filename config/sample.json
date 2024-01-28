@@ -1,0 +1,5 @@
+{
+    "atd_music_search_api":{
+        "secret": "this is a long secret"
+    }
+}
