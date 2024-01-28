@@ -11,7 +11,7 @@ router = APIRouter(
 
 
 @router.get("/spotify")
-async def search(
+async def spotify(
     query: str,
     spotify_client: Annotated[SpotifyClient, Depends(get_spotify_client)],
 ):
