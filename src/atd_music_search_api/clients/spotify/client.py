@@ -2,6 +2,7 @@ import httpx
 from httpx import Client
 
 from ...config import CONFIG
+from ..helpers import create_dependency
 from .types import SearchTrackResponse, TokenResponse
 
 
@@ -44,4 +45,4 @@ class SpotifyClient(Client):
         return data["tracks"]["items"][0]["external_urls"]["spotify"]
 
 
-__all__ = ["SpotifyClient"]
+get_spotify_client = create_dependency(SpotifyClient)
