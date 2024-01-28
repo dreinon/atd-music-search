@@ -1,5 +1,11 @@
 {
     "atd_music_search_api":{
         "secret": "this is a long secret"
+    },
+    "spotify":{
+        "auth_url": "url to spotify auth api",
+        "api_url": "url to spotify api",
+        "client_id": "your client id",
+        "client_secret": "your client secret"
     }
 }
