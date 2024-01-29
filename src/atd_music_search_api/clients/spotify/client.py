@@ -1,5 +1,5 @@
 import httpx
-from httpx import Client
+from httpx import AsyncClient
 
 from ...config import CONFIG
 from ..helpers import create_dependency
@@ -22,7 +22,7 @@ def get_access_token():
     return TokenResponse(**response.json())["access_token"]
 
 
-class SpotifyClient(Client):
+class SpotifyClient(AsyncClient):
     """
     Spotify API Client
     """
@@ -34,11 +34,13 @@ class SpotifyClient(Client):
             base_url=CONFIG.spotify.api_url, headers=headers, *args, **kwargs
         )
 
-    def search(self, query: str):
+    async def search(self, query: str):
         """
         Search Spotify API
         """
-        response = self.get("/search", params={"q": query, "type": "track", "limit": 1})
+        response = await self.get(
+            "/search", params={"q": query, "type": "track", "limit": 1}
+        )
         response.raise_for_status()
 
         data = SearchTrackResponse(**response.json())

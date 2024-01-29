@@ -15,4 +15,4 @@ async def spotify(
     query: str,
     spotify_client: Annotated[SpotifyClient, Depends(get_spotify_client)],
 ):
-    return spotify_client.search(query=query)
+    return await spotify_client.search(query=query)

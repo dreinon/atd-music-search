@@ -5,12 +5,12 @@ class TokenResponse(TypedDict):
     access_token: str
 
 
-class SearchTrackResponseTracksItemsExternalURLs(TypedDict):
+class SearchTrackResponseTracksItemExternalURLs(TypedDict):
     spotify: str
 
 
 class SearchTrackResponseTracksItem(TypedDict):
-    external_urls: SearchTrackResponseTracksItemsExternalURLs
+    external_urls: SearchTrackResponseTracksItemExternalURLs
 
 
 class SearchTrackResponseTracks(TypedDict):
