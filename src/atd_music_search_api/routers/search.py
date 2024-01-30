@@ -16,7 +16,7 @@ router = APIRouter(
 )
 
 
-@router.get("/spotify")
+@router.get("/spotify/")
 async def search_song_in_spotify(
     query: str,
     spotify_client: Annotated[SpotifyClient, Depends(get_spotify_client)],
@@ -24,7 +24,7 @@ async def search_song_in_spotify(
     return await spotify_client.search(query=query)
 
 
-@router.get("/tidal")
+@router.get("/tidal/")
 async def search_song_in_tidal(
     query: str,
     tidal_client: Annotated[TidalClient, Depends(get_tidal_client)],
@@ -32,21 +32,21 @@ async def search_song_in_tidal(
     return await tidal_client.search(query=query)
 
 
-@router.get("/deezer")
+@router.get("/deezer/")
 async def search_song_in_deezer(
     query: str, deezer_client: Annotated[DeezerClient, Depends(get_deezer_client)]
 ) -> str:
     return await deezer_client.search(query=query)
 
 
-@router.get("/youtube")
+@router.get("/youtube/")
 async def search_song_in_youtube(
     query: str, youtube_client: Annotated[YoutubeClient, Depends(get_youtube_client)]
 ) -> str:
     return await youtube_client.search(query=query)
 
 
-@router.get("/genius")
+@router.get("/genius/")
 async def search_song_in_genius(
     query: str, genius_client: Annotated[GeniusClient, Depends(get_genius_client)]
 ) -> str:
