@@ -1,0 +1,6 @@
+{
+    "atd_music_search_api": {
+        "secret": "your-secret-here",
+        "url": "http://localhost:8080"
+    }
+}

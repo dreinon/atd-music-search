@@ -160,8 +160,8 @@ cython_debug/
 #.idea/
 
 # API config JSON files except sample.json
-config/*
-!config/sample.json
+config/*/*
+!config/*/sample.json
 
 # Local folder
 local/*
