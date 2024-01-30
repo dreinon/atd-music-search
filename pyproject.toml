@@ -11,6 +11,9 @@ dependencies = [
     "gunicorn>=21.2.0",
     "uvicorn>=0.27.0",
     "httpx>=0.26.0",
+    "typer[all]>=0.9.0",
+    "inquirerpy>=0.3.4",
+    "prompt-toolkit>=3.0.43",
 ]
 
 requires-python = "==3.10.*"
@@ -29,7 +32,8 @@ dev = [
 set_precommit_hooks = "pre-commit install --install-hooks"
 format = {shell = "black . && isort ."}
 lint = {shell = "pylint src"}
-local = {cmd = "python -m scripts.run_local_server", env = {ENV = "config"}}
+api = {cmd = "python -m scripts.run_local_server", env = {ENV = "config"}}
+cli = {cmd = "python -m scripts.run_cli", env = {ENV = "config"}}
 server = "gunicorn src.atd_music_search_api.api:app -b 0.0.0.0:8080 -k uvicorn.workers.UvicornWorker -w 4 -t 300 --reload"
 tunnel = "ngrok http 8080"
 
