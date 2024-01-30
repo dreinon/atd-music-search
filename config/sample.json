@@ -26,7 +26,6 @@
     },
     "genius": {
         "api_url": "https://api.genius.com",
-        "client_id": "your-client-id-here",
-        "client_secret": "your-client-secret-here"
+        "access_token": "your-access-token-here"
     }
 }
