@@ -4,4 +4,4 @@ from .models import ConfigType
 
 
 def import_config():
-    return ConfigType.model_validate_json(os.environ["CONFIG"])
+    return ConfigType.model_validate_json(os.environ["API_CONFIG"])

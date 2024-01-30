@@ -1,8 +1,14 @@
+import os
 from logging import DEBUG
 
 import uvicorn
 
-from .utils import export_config
+
+def export_config(override_env_with: str | None = None) -> None:
+    env = override_env_with or os.getenv("ENV")
+    with open(f"config/api/{env}.json", encoding="utf-8") as f:
+        os.environ["API_CONFIG"] = f.read()
+
 
 if __name__ == "__main__":
     export_config()
